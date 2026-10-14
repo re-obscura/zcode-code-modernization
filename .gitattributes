@@ -1,0 +1,15 @@
+# Normalize text files to LF in the repository; git converts on checkout only where told to.
+* text=auto
+
+# Shell scripts must keep LF whatever the platform's config says (autocrlf=true breaks them).
+*.sh text eol=lf
+*.py text eol=lf
+*.json text
+*.md text
+
+# Vendored and media files are byte-exact artifacts (mermaid.min.js carries a recorded SHA-256).
+code-modernization/assets/vendor/mermaid.min.js binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary

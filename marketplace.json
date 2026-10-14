@@ -1,0 +1,20 @@
+{
+  "name": "zcode-code-modernization",
+  "plugins": [
+    {
+      "name": "code-modernization",
+      "source": "./code-modernization",
+      "description": "Guided modernization for any legacy codebase: an assessment, an interactive map, the business rules mined from the code, and a plan you approve, then an upgrade, a rewrite or a rebuild with independent proof that the new code behaves like the old.",
+      "displayName": "Code Modernization",
+      "displayName_i18n": {
+        "ru-RU": "Модернизация кода",
+        "zh-CN": "代码现代化"
+      },
+      "description_i18n": {
+        "ru-RU": "Управляемая модернизация легаси-кода: оценка, интерактивная карта, бизнес-правила из кода и утверждаемый план, затем обновление, переписывание или перестройка с независимым доказательством эквивалентности.",
+        "zh-CN": "遗留代码现代化引导流程：评估、交互式地图、从代码中挖掘业务规则、可审批的计划，随后是升级、重写或重构，并附带新旧行为等价的独立证明。"
+      },
+      "category": "developer-tools"
+    }
+  ]
+}

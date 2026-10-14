@@ -1,0 +1,63 @@
+{
+  "name": "code-modernization",
+  "version": "1.1.0",
+  "description": "Guided modernization for any legacy codebase: start with /code-modernization:modernize, get an assessment, an interactive map, the business rules mined from the code, and a plan you approve, then an upgrade, a rewrite or a rebuild with independent proof that the new code behaves like the old. Includes security hardening, a one-page report, specialist agents, an x-ray that attaches what the analysis knows to every legacy read, a guard that keeps the source read-only, and a status dashboard (early access).",
+  "author": {
+    "name": "Anthropic",
+    "email": "support@anthropic.com"
+  },
+  "license": "Apache-2.0",
+  "commands": "commands",
+  "agents": "agents",
+  "hooks": "hooks/hooks.json",
+  "userConfig": {
+    "system": {
+      "type": "string",
+      "title": "System",
+      "description": "The system under analysis/ to follow. Empty follows the first one found.",
+      "default": ""
+    },
+    "track": {
+      "type": "string",
+      "title": "Track to follow",
+      "description": "auto follows whichever way the plugin's commands are working on the system: a rewrite, a same-stack uplift or a greenfield reimagine, by the newest artifacts. Name one to pin it. One of: auto (default), transform, uplift, reimagine.",
+      "default": "auto"
+    },
+    "panel": {
+      "type": "string",
+      "title": "Status dashboard",
+      "description": "auto has /code-modernization:modernize-panel open the dashboard whenever it runs and commands end with a pointer to it; command opens it only when you type /code-modernization:modernize-panel; off never opens it and commands stop mentioning it. One of: auto (default), command, off.",
+      "default": "auto"
+    },
+    "xray": {
+      "type": "boolean",
+      "title": "X-ray reads",
+      "description": "When the agent reads a legacy file, attach what the analysis already knows about it (callers, data it touches, the rules citing it) as context only the model sees.",
+      "default": true
+    },
+    "guard": {
+      "type": "string",
+      "title": "Source guard",
+      "description": "The ZCode replacement for the deny rule upstream README suggests: a hook that denies Edit/Write calls aimed under legacy/. auto engages the guard only in a workspace where the plugin has written analysis/ artifacts; on always engages it when a legacy/ directory exists; off never engages it (the commands' convention is then the only protection). One of: auto (default), on, off.",
+      "default": "auto"
+    },
+    "commandPrefix": {
+      "type": "string",
+      "title": "Command prefix",
+      "description": "How the plugin's commands are written up to their verb, for the dashboard's Next line.",
+      "default": "/code-modernization:modernize-"
+    },
+    "legacyDir": {
+      "type": "string",
+      "title": "Legacy directory",
+      "description": "The read-only tree holding the legacy systems, relative to the workspace.",
+      "default": "legacy"
+    },
+    "telemetry": {
+      "type": "boolean",
+      "title": "Usage counts",
+      "description": "Send usage counts through the harness's own telemetry: whole numbers only, such as which command ran, how many rules were found, what kind of machine and python the plugin runs on, and which kind of error occurred. Never code, names, paths, prompts or error text. Nothing is sent when harness telemetry is off. See exactly what would be sent with: python scripts/telemetry.py show",
+      "default": true
+    }
+  }
+}
